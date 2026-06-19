@@ -1,0 +1,587 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\reportissuesform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\reportissuesform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\reportissuesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\reportissuesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|c:\\users\\user\\source\\repos\\municipalservicesapp\\municipalservicesapp\\servicerequeststatusform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\servicerequeststatusform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\servicerequestmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\servicerequestmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|c:\\users\\user\\source\\repos\\municipalservicesapp\\municipalservicesapp\\datastructures\\graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\datastructures\\graph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|c:\\users\\user\\source\\repos\\municipalservicesapp\\municipalservicesapp\\datastructures\\avltree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\datastructures\\avltree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\models\\priority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\models\\priority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\servicerequeststatusform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\servicerequeststatusform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\bst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\bst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\servicerequeststatusformhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\servicerequeststatusformhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\localeventsform.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\localeventsform.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\localeventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\localeventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\formlocalevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\formlocalevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|MunicipalServicesApp||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\reportissuesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\reportissuesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\localeventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\localeventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\priorityqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\priorityqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\localevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\localevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\frmreportissue.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\frmreportissue.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\formlocalevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\formlocalevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Downloads\\MunicipalServicesApp.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\localeventsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\localeventsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\AppData\\Local\\Temp\\tmp1BE6.tmp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\formlocalevents.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\formlocalevents.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\formlocalevents.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\formlocalevents.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\municipalservicesapp\\form1.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{01A5BC15-03E2-440D-93C7-E7FAD96B99B3}|MunicipalServicesApp\\MunicipalServicesApp.csproj|solutionrelative:municipalservicesapp\\form1.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\DataStructures\\AVLTress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MunicipalServicesApp\\DataStructures\\AVLTress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReportIssuesForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ReportIssuesForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\ReportIssuesForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ReportIssuesForm.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\ReportIssuesForm.cs",
+              "ViewState": "AgIAAL0AAAAAAAAAAAApwNcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:16:32.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MainForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\MainForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MainForm.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\MainForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAApwBoAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T21:02:43.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReportIssuesForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ReportIssuesForm.Designer.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\ReportIssuesForm.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ReportIssuesForm.Designer.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\ReportIssuesForm.Designer.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAAAHoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T12:29:50.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceRequestStatusForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestStatusForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\ServiceRequestStatusForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestStatusForm.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\ServiceRequestStatusForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:23:19.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ServiceRequestManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestManager.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\ServiceRequestManager.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestManager.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\ServiceRequestManager.cs",
+              "ViewState": "AgIAAMcCAAAAAAAAAAAAAAsDAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:19:50.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Graph.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\DataStructures\\Graph.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\DataStructures\\Graph.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\DataStructures\\Graph.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\DataStructures\\Graph.cs",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T16:49:49.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AVLTree.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\DataStructures\\AVLTree.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\DataStructures\\AVLTree.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\DataStructures\\AVLTree.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\DataStructures\\AVLTree.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwIYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T16:08:10.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Priority.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Models\\Priority.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\Models\\Priority.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Models\\Priority.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\Models\\Priority.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T18:51:05.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ServiceRequestStatusForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestStatusForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\ServiceRequestStatusForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestStatusForm.cs [Design]",
+              "RelativeToolTip": "MunicipalServicesApp\\ServiceRequestStatusForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:22:46.433Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\README.md",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\README.md",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\README.md",
+              "RelativeToolTip": "MunicipalServicesApp\\README.md",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-11T18:44:57.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BST.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\BST.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\BST.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\BST.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\BST.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:25:14.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.Designer.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\Form1.Designer.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAowHwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:41:56.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ServiceRequestStatusFormHelpers.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestStatusFormHelpers.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\ServiceRequestStatusFormHelpers.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ServiceRequestStatusFormHelpers.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\ServiceRequestStatusFormHelpers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T13:35:13.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MainForm.Designer.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\MainForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T11:54:16.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AVLTress.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\DataStructures\\AVLTress.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\DataStructures\\AVLTress.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\DataStructures\\AVLTress.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\DataStructures\\AVLTress.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAgwNQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T13:36:44.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MainForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\MainForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MainForm.cs [Design]",
+              "RelativeToolTip": "MunicipalServicesApp\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T21:02:19.801Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LocalEventsForm.Designer.vb",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.Designer.vb",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\LocalEventsForm.Designer.vb",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.Designer.vb",
+              "RelativeToolTip": "MunicipalServicesApp\\LocalEventsForm.Designer.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-06-18T21:50:43.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LocalEventsForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\LocalEventsForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\LocalEventsForm.cs",
+              "ViewState": "AgIAAI0BAAAAAAAAAAAAAKsBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:20:49.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FormLocalEvents.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\FormLocalEvents.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\FormLocalEvents.cs",
+              "ViewState": "AgIAAEABAAAAAAAAAAAAAEABAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T13:19:43.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MunicipalServicesApp",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MunicipalServicesApp.csproj",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\MunicipalServicesApp.csproj",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\MunicipalServicesApp.csproj",
+              "RelativeToolTip": "MunicipalServicesApp\\MunicipalServicesApp.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-05-10T18:39:02.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ReportIssuesForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ReportIssuesForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\ReportIssuesForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\ReportIssuesForm.cs [Design]",
+              "RelativeToolTip": "MunicipalServicesApp\\ReportIssuesForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:15:39.008Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LocalEventsForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\LocalEventsForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.cs [Design]",
+              "RelativeToolTip": "MunicipalServicesApp\\LocalEventsForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:20:39.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\Form1.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\Form1.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAApwBYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T17:38:20.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Program.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Program.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T18:35:22.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PriorityQueue.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\PriorityQueue.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\PriorityQueue.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\PriorityQueue.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\PriorityQueue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAgwBQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:26:40.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LocalEvent.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEvent.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\LocalEvent.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEvent.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\LocalEvent.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAgwBkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:33:50.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "frmReportIssue.vb",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\frmReportIssue.vb",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\frmReportIssue.vb",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\frmReportIssue.vb",
+              "RelativeToolTip": "MunicipalServicesApp\\frmReportIssue.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-05-10T17:17:26.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FormLocalEvents.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\FormLocalEvents.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.cs [Design]",
+              "RelativeToolTip": "MunicipalServicesApp\\FormLocalEvents.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T13:32:52.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\Form1.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.cs [Design]",
+              "RelativeToolTip": "MunicipalServicesApp\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T12:09:54.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "MunicipalServicesApp.vb",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\MunicipalServicesApp.vb",
+              "RelativeDocumentMoniker": "..\\..\\..\\Downloads\\MunicipalServicesApp.vb",
+              "ToolTip": "C:\\Users\\User\\Downloads\\MunicipalServicesApp.vb",
+              "RelativeToolTip": "..\\..\\..\\Downloads\\MunicipalServicesApp.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-05-11T14:39:47.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "tmp1BE6.tmp.cs",
+              "DocumentMoniker": "C:\\Users\\User\\AppData\\Local\\Temp\\tmp1BE6.tmp.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\tmp1BE6.tmp.cs",
+              "ToolTip": "C:\\Users\\User\\AppData\\Local\\Temp\\tmp1BE6.tmp.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\tmp1BE6.tmp.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T18:28:33.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "LocalEventsForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.Designer.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\LocalEventsForm.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\LocalEventsForm.Designer.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\LocalEventsForm.Designer.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAcwIoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T17:34:42.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "FormLocalEvents.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.Designer.cs",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\FormLocalEvents.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.Designer.cs",
+              "RelativeToolTip": "MunicipalServicesApp\\FormLocalEvents.Designer.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAcwK8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T13:32:31.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "FormLocalEvents.resx",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.resx",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\FormLocalEvents.resx",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\FormLocalEvents.resx",
+              "RelativeToolTip": "MunicipalServicesApp\\FormLocalEvents.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-10T17:17:24.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Form1.resx",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.resx",
+              "RelativeDocumentMoniker": "MunicipalServicesApp\\Form1.resx",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MunicipalServicesApp\\MunicipalServicesApp\\Form1.resx",
+              "RelativeToolTip": "MunicipalServicesApp\\Form1.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-10T17:17:13.427Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

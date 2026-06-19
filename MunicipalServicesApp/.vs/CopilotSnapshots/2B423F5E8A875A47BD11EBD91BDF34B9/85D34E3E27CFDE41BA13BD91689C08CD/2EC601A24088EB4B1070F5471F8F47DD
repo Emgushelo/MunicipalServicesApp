@@ -1,0 +1,806 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+using MunicipalServicesApp.Models;
+using MunicipalServicesApp.DataStructures;
+
+namespace MunicipalServicesApp
+{
+    public partial class ServiceStatusForm : Form
+    {
+        // Advanced Data Structures for Task 3
+        private static AVLTree<string, ServiceRequest> _requestTree = new AVLTree<string, ServiceRequest>();
+        private static MinHeap<ServiceRequest> _priorityQueue = new MinHeap<ServiceRequest>();
+        private static Graph<string> _requestGraph = new Graph<string>();
+        private static Dictionary<string, ServiceRequest> _masterStore = new Dictionary<string, ServiceRequest>();
+
+        private ServiceRequest _selectedRequest;
+
+        public ServiceStatusForm()
+        {
+            InitializeComponent();
+            LoadExistingRequests();
+            RefreshDisplay();
+        }
+
+        // Method to add requests from ReportIssueForm
+        public static void AddRequest(ServiceRequest request)
+        {
+            // Master store
+            _masterStore[request.RequestId] = request;
+
+            // AVL Tree for O(log n) search
+            _requestTree.Insert(request.RequestId, request);
+
+            // MinHeap for priority processing
+            _priorityQueue.Insert(request);
+
+            // Graph for relationships (based on location and category)
+            foreach (var existing in _masterStore.Values)
+            {
+                if (existing.RequestId != request.RequestId)
+                {
+                    // Connect requests in same location
+                    if (existing.Location == request.Location)
+                    {
+                        _requestGraph.AddEdge(request.RequestId, existing.RequestId);
+                    }
+                    // Connect requests in same category
+                    else if (existing.Category == request.Category)
+                    {
+                        _requestGraph.AddEdge(request.RequestId, existing.RequestId);
+                    }
+                }
+            }
+        }
+
+        private void LoadExistingRequests()
+        {
+            // Load requests from ReportIssueForm's master store
+            foreach (var kvp in ReportIssueForm.MasterStore)
+            {
+                if (!_masterStore.ContainsKey(kvp.Key))
+                {
+                    AddRequest(kvp.Value);
+                }
+            }
+        }
+
+        private void RefreshDisplay()
+        {
+            // Display all requests in DataGridView
+            var allRequests = _requestTree.InOrderTraversal;
+            dgvRequests.DataSource = null;
+            dgvRequests.DataSource = allRequests.Select(r => new
+            {
+                RequestId = r.RequestId,
+                r.Location,
+                r.Category,
+                r.Status,
+                Priority = r.Priority.ToString(),
+                Submitted = r.SubmittedDate.ToString("yyyy-MM-dd HH:mm"),
+                HasAttachment = !string.IsNullOrEmpty(r.AttachedFilePath)
+            }).ToList();
+
+            // Update priority queue display
+            UpdatePriorityQueueDisplay();
+
+            // Clear selection
+            ClearDetails();
+            UpdateStatistics();
+        }
+
+        private void UpdatePriorityQueueDisplay()
+        {
+            lstPriorityQueue.Items.Clear();
+            var queueItems = _priorityQueue.GetAll();
+            queueItems.Sort(); // Sort by priority (Critical first)
+
+            foreach (var item in queueItems)
+            {
+                string display = $"{item.Priority} - {item.RequestId} - {item.Category}";
+                int index = lstPriorityQueue.Items.Count;
+                lstPriorityQueue.Items.Add(display);
+
+                // Color code by priority
+                switch (item.Priority)
+                {
+                    case PriorityLevel.Critical:
+                        lstPriorityQueue.Items[index] = $"🔴 CRITICAL - {item.RequestId}";
+                        break;
+                    case PriorityLevel.High:
+                        lstPriorityQueue.Items[index] = $"🟠 HIGH - {item.RequestId}";
+                        break;
+                    case PriorityLevel.Medium:
+                        lstPriorityQueue.Items[index] = $"🟡 MEDIUM - {item.RequestId}";
+                        break;
+                    case PriorityLevel.Low:
+                        lstPriorityQueue.Items[index] = $"🟢 LOW - {item.RequestId}";
+                        break;
+                }
+            }
+        }
+
+        private void UpdateStatistics()
+        {
+            int total = _masterStore.Count;
+            int critical = _masterStore.Values.Count(r => r.Priority == PriorityLevel.Critical);
+            int inProgress = _masterStore.Values.Count(r => r.Status == "In Progress");
+            int resolved = _masterStore.Values.Count(r => r.Status == "Resolved" || r.Status == "Closed");
+
+            lblStats.Text = $"📊 Total: {total} | 🔴 Critical: {critical} | ⏳ In Progress: {inProgress} | ✅ Resolved: {resolved}";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string requestId = txtSearchId.Text.Trim();
+            if (string.IsNullOrEmpty(requestId))
+            {
+                MessageBox.Show("Please enter a Request ID.", "Search",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // AVL Tree search - O(log n)
+            var request = _requestTree.Search(requestId);
+            if (request != null)
+            {
+                DisplayRequestDetails(request);
+                ShowRelatedRequests(request.RequestId);
+                HighlightRequestInGrid(request.RequestId);
+            }
+            else
+            {
+                MessageBox.Show($"Request {requestId} not found.", "Not Found",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearDetails();
+            }
+        }
+
+        private void HighlightRequestInGrid(string requestId)
+        {
+            foreach (DataGridViewRow row in dgvRequests.Rows)
+            {
+                if (row.Cells[0].Value?.ToString() == requestId)
+                {
+                    row.Selected = true;
+                    dgvRequests.FirstDisplayedScrollingRowIndex = row.Index;
+                    break;
+                }
+            }
+        }
+
+        private void DisplayRequestDetails(ServiceRequest request)
+        {
+            _selectedRequest = request;
+            txtDetailsRequestId.Text = request.RequestId;
+            txtDetailsLocation.Text = request.Location;
+            txtDetailsCategory.Text = request.Category;
+            txtDetailsDescription.Text = request.Description;
+            txtDetailsStatus.Text = request.Status;
+            txtDetailsPriority.Text = request.Priority.ToString();
+            txtDetailsDate.Text = request.SubmittedDate.ToString("yyyy-MM-dd HH:mm");
+
+            // Color code priority
+            switch (request.Priority)
+            {
+                case PriorityLevel.Critical:
+                    txtDetailsPriority.BackColor = Color.FromArgb(255, 200, 200);
+                    break;
+                case PriorityLevel.High:
+                    txtDetailsPriority.BackColor = Color.FromArgb(255, 230, 200);
+                    break;
+                case PriorityLevel.Medium:
+                    txtDetailsPriority.BackColor = Color.FromArgb(255, 255, 200);
+                    break;
+                case PriorityLevel.Low:
+                    txtDetailsPriority.BackColor = Color.FromArgb(200, 255, 200);
+                    break;
+            }
+
+            // Show attachment info
+            if (!string.IsNullOrEmpty(request.AttachedFilePath))
+            {
+                lblAttachmentInfo.Text = $"📎 {System.IO.Path.GetFileName(request.AttachedFilePath)}";
+                lblAttachmentInfo.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblAttachmentInfo.Text = "No attachment";
+                lblAttachmentInfo.ForeColor = Color.Gray;
+            }
+
+            // Set status in dropdown
+            cmbNewStatus.SelectedItem = request.Status;
+        }
+
+        private void ShowRelatedRequests(string requestId)
+        {
+            lstRelatedRequests.Items.Clear();
+
+            // Graph BFS - O(V+E)
+            var relatedIds = _requestGraph.BFS(requestId);
+
+            if (relatedIds.Count > 1)
+            {
+                lstRelatedRequests.Items.Add($"📌 {relatedIds.Count - 1} related request(s) found:");
+                foreach (var id in relatedIds)
+                {
+                    if (id != requestId && _masterStore.ContainsKey(id))
+                    {
+                        var related = _masterStore[id];
+                        lstRelatedRequests.Items.Add($"   • {id} - {related.Category} ({related.Status})");
+                    }
+                }
+            }
+            else
+            {
+                lstRelatedRequests.Items.Add("No related requests found.");
+            }
+
+            // Show graph statistics
+            lblGraphStats.Text = $"Graph: {_requestGraph.GetVertexCount()} vertices, {_requestGraph.GetEdgeCount()} edges";
+        }
+
+        private void ClearDetails()
+        {
+            _selectedRequest = null;
+            txtDetailsRequestId.Text = "";
+            txtDetailsLocation.Text = "";
+            txtDetailsCategory.Text = "";
+            txtDetailsDescription.Text = "";
+            txtDetailsStatus.Text = "";
+            txtDetailsPriority.Text = "";
+            txtDetailsDate.Text = "";
+            txtDetailsPriority.BackColor = SystemColors.Window;
+            lblAttachmentInfo.Text = "No attachment";
+            lblAttachmentInfo.ForeColor = Color.Gray;
+            lstRelatedRequests.Items.Clear();
+            lstRelatedRequests.Items.Add("No request selected.");
+            cmbNewStatus.SelectedIndex = -1;
+        }
+
+        private void btnUpdateStatus_Click(object sender, EventArgs e)
+        {
+            if (_selectedRequest == null)
+            {
+                MessageBox.Show("Please select or search for a request first.",
+                    "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string newStatus = cmbNewStatus.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(newStatus))
+            {
+                MessageBox.Show("Please select a new status.",
+                    "Status Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Update status
+            _selectedRequest.Status = newStatus;
+            _masterStore[_selectedRequest.RequestId] = _selectedRequest;
+            ReportIssueForm.MasterStore[_selectedRequest.RequestId] = _selectedRequest;
+
+            // Rebuild data structures
+            RebuildDataStructures();
+
+            RefreshDisplay();
+            DisplayRequestDetails(_selectedRequest);
+
+            MessageBox.Show($"✅ Status updated to: {newStatus}", "Status Updated",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void RebuildDataStructures()
+        {
+            // Rebuild AVL Tree and Heap from master store
+            _requestTree = new AVLTree<string, ServiceRequest>();
+            _priorityQueue = new MinHeap<ServiceRequest>();
+            _requestGraph = new Graph<string>();
+
+            foreach (var kvp in _masterStore)
+            {
+                _requestTree.Insert(kvp.Key, kvp.Value);
+                _priorityQueue.Insert(kvp.Value);
+            }
+
+            // Rebuild graph edges
+            foreach (var kvp1 in _masterStore)
+            {
+                foreach (var kvp2 in _masterStore)
+                {
+                    if (kvp1.Key != kvp2.Key)
+                    {
+                        if (kvp1.Value.Location == kvp2.Value.Location ||
+                            kvp1.Value.Category == kvp2.Value.Category)
+                        {
+                            _requestGraph.AddEdge(kvp1.Key, kvp2.Key);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshDisplay();
+        }
+
+   
+        private void dgvRequests_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string requestId = dgvRequests.Rows[e.RowIndex].Cells[0].Value.ToString();
+                var request = _requestTree.Search(requestId);
+                if (request != null)
+                {
+                    DisplayRequestDetails(request);
+                    ShowRelatedRequests(request.RequestId);
+                }
+            }
+        }
+
+        #region Designer Code
+        private void InitializeComponent()
+        {
+            this.dgvRequests = new System.Windows.Forms.DataGridView();
+            this.grpSearch = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearchId = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.grpDetails = new System.Windows.Forms.GroupBox();
+            this.lblAttachmentInfo = new System.Windows.Forms.Label();
+            this.lblPriority = new System.Windows.Forms.Label();
+            this.txtDetailsPriority = new System.Windows.Forms.TextBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.txtDetailsDate = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.txtDetailsStatus = new System.Windows.Forms.TextBox();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.txtDetailsDescription = new System.Windows.Forms.TextBox();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.txtDetailsCategory = new System.Windows.Forms.TextBox();
+            this.lblLocation = new System.Windows.Forms.Label();
+            this.txtDetailsLocation = new System.Windows.Forms.TextBox();
+            this.lblRequestId = new System.Windows.Forms.Label();
+            this.txtDetailsRequestId = new System.Windows.Forms.TextBox();
+            this.grpStatusUpdate = new System.Windows.Forms.GroupBox();
+            this.btnUpdateStatus = new System.Windows.Forms.Button();
+            this.cmbNewStatus = new System.Windows.Forms.ComboBox();
+            this.lblNewStatus = new System.Windows.Forms.Label();
+            this.grpPriorityQueue = new System.Windows.Forms.GroupBox();
+            this.lstPriorityQueue = new System.Windows.Forms.ListBox();
+            this.grpRelated = new System.Windows.Forms.GroupBox();
+            this.lstRelatedRequests = new System.Windows.Forms.ListBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.lblStats = new System.Windows.Forms.Label();
+            this.lblGraphStats = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequests)).BeginInit();
+            this.grpSearch.SuspendLayout();
+            this.grpDetails.SuspendLayout();
+            this.grpStatusUpdate.SuspendLayout();
+            this.grpPriorityQueue.SuspendLayout();
+            this.grpRelated.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // dgvRequests
+            // 
+            this.dgvRequests.AllowUserToAddRows = false;
+            this.dgvRequests.AllowUserToDeleteRows = false;
+            this.dgvRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRequests.Location = new System.Drawing.Point(12, 50);
+            this.dgvRequests.Name = "dgvRequests";
+            this.dgvRequests.ReadOnly = true;
+            this.dgvRequests.RowHeadersWidth = 51;
+            this.dgvRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRequests.Size = new System.Drawing.Size(500, 200);
+            this.dgvRequests.TabIndex = 0;
+            this.dgvRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequests_CellClick);
+            // 
+            // grpSearch
+            // 
+            this.grpSearch.Controls.Add(this.btnSearch);
+            this.grpSearch.Controls.Add(this.txtSearchId);
+            this.grpSearch.Controls.Add(this.lblSearch);
+            this.grpSearch.Location = new System.Drawing.Point(12, 256);
+            this.grpSearch.Name = "grpSearch";
+            this.grpSearch.Size = new System.Drawing.Size(500, 55);
+            this.grpSearch.TabIndex = 1;
+            this.grpSearch.TabStop = false;
+            this.grpSearch.Text = "🔍 Search Request (AVL Tree)";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(390, 18);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(100, 28);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "🔍 Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearchId
+            // 
+            this.txtSearchId.Location = new System.Drawing.Point(100, 20);
+            this.txtSearchId.Name = "txtSearchId";
+            this.txtSearchId.Size = new System.Drawing.Size(280, 22);
+            this.txtSearchId.TabIndex = 1;
+            this.txtSearchId.Text = "Enter Request ID...";
+            this.txtSearchId.Enter += (s, e) => { if (txtSearchId.Text == "Enter Request ID...") txtSearchId.Clear(); };
+            this.txtSearchId.Leave += (s, e) => { if (string.IsNullOrWhiteSpace(txtSearchId.Text)) txtSearchId.Text = "Enter Request ID..."; };
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(10, 23);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(74, 16);
+            this.lblSearch.TabIndex = 0;
+            this.lblSearch.Text = "Request ID:";
+            // 
+            // grpDetails
+            // 
+            this.grpDetails.Controls.Add(this.lblAttachmentInfo);
+            this.grpDetails.Controls.Add(this.lblPriority);
+            this.grpDetails.Controls.Add(this.txtDetailsPriority);
+            this.grpDetails.Controls.Add(this.lblDate);
+            this.grpDetails.Controls.Add(this.txtDetailsDate);
+            this.grpDetails.Controls.Add(this.lblStatus);
+            this.grpDetails.Controls.Add(this.txtDetailsStatus);
+            this.grpDetails.Controls.Add(this.lblDescription);
+            this.grpDetails.Controls.Add(this.txtDetailsDescription);
+            this.grpDetails.Controls.Add(this.lblCategory);
+            this.grpDetails.Controls.Add(this.txtDetailsCategory);
+            this.grpDetails.Controls.Add(this.lblLocation);
+            this.grpDetails.Controls.Add(this.txtDetailsLocation);
+            this.grpDetails.Controls.Add(this.lblRequestId);
+            this.grpDetails.Controls.Add(this.txtDetailsRequestId);
+            this.grpDetails.Location = new System.Drawing.Point(520, 12);
+            this.grpDetails.Name = "grpDetails";
+            this.grpDetails.Size = new System.Drawing.Size(430, 300);
+            this.grpDetails.TabIndex = 2;
+            this.grpDetails.TabStop = false;
+            this.grpDetails.Text = "📋 Request Details";
+            // 
+            // lblAttachmentInfo
+            // 
+            this.lblAttachmentInfo.AutoSize = true;
+            this.lblAttachmentInfo.Location = new System.Drawing.Point(10, 270);
+            this.lblAttachmentInfo.Name = "lblAttachmentInfo";
+            this.lblAttachmentInfo.Size = new System.Drawing.Size(92, 16);
+            this.lblAttachmentInfo.TabIndex = 15;
+            this.lblAttachmentInfo.Text = "No attachment";
+            // 
+            // lblPriority
+            // 
+            this.lblPriority.AutoSize = true;
+            this.lblPriority.Location = new System.Drawing.Point(10, 200);
+            this.lblPriority.Name = "lblPriority";
+            this.lblPriority.Size = new System.Drawing.Size(52, 16);
+            this.lblPriority.TabIndex = 13;
+            this.lblPriority.Text = "Priority:";
+            // 
+            // txtDetailsPriority
+            // 
+            this.txtDetailsPriority.Location = new System.Drawing.Point(80, 197);
+            this.txtDetailsPriority.Name = "txtDetailsPriority";
+            this.txtDetailsPriority.ReadOnly = true;
+            this.txtDetailsPriority.Size = new System.Drawing.Size(150, 22);
+            this.txtDetailsPriority.TabIndex = 12;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(10, 240);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(40, 16);
+            this.lblDate.TabIndex = 11;
+            this.lblDate.Text = "Date:";
+            // 
+            // txtDetailsDate
+            // 
+            this.txtDetailsDate.Location = new System.Drawing.Point(80, 237);
+            this.txtDetailsDate.Name = "txtDetailsDate";
+            this.txtDetailsDate.ReadOnly = true;
+            this.txtDetailsDate.Size = new System.Drawing.Size(200, 22);
+            this.txtDetailsDate.TabIndex = 10;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(10, 160);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(47, 16);
+            this.lblStatus.TabIndex = 9;
+            this.lblStatus.Text = "Status:";
+            // 
+            // txtDetailsStatus
+            // 
+            this.txtDetailsStatus.Location = new System.Drawing.Point(80, 157);
+            this.txtDetailsStatus.Name = "txtDetailsStatus";
+            this.txtDetailsStatus.ReadOnly = true;
+            this.txtDetailsStatus.Size = new System.Drawing.Size(200, 22);
+            this.txtDetailsStatus.TabIndex = 8;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(10, 120);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(78, 16);
+            this.lblDescription.TabIndex = 7;
+            this.lblDescription.Text = "Description:";
+            // 
+            // txtDetailsDescription
+            // 
+            this.txtDetailsDescription.Location = new System.Drawing.Point(100, 117);
+            this.txtDetailsDescription.Name = "txtDetailsDescription";
+            this.txtDetailsDescription.ReadOnly = true;
+            this.txtDetailsDescription.Size = new System.Drawing.Size(310, 22);
+            this.txtDetailsDescription.TabIndex = 6;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(10, 80);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(64, 16);
+            this.lblCategory.TabIndex = 5;
+            this.lblCategory.Text = "Category:";
+            // 
+            // txtDetailsCategory
+            // 
+            this.txtDetailsCategory.Location = new System.Drawing.Point(90, 77);
+            this.txtDetailsCategory.Name = "txtDetailsCategory";
+            this.txtDetailsCategory.ReadOnly = true;
+            this.txtDetailsCategory.Size = new System.Drawing.Size(200, 22);
+            this.txtDetailsCategory.TabIndex = 4;
+            // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(10, 40);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(58, 16);
+            this.lblLocation.TabIndex = 3;
+            this.lblLocation.Text = "Location:";
+            // 
+            // txtDetailsLocation
+            // 
+            this.txtDetailsLocation.Location = new System.Drawing.Point(80, 37);
+            this.txtDetailsLocation.Name = "txtDetailsLocation";
+            this.txtDetailsLocation.ReadOnly = true;
+            this.txtDetailsLocation.Size = new System.Drawing.Size(330, 22);
+            this.txtDetailsLocation.TabIndex = 2;
+            // 
+            // lblRequestId
+            // 
+            this.lblRequestId.AutoSize = true;
+            this.lblRequestId.Location = new System.Drawing.Point(10, 60);
+            this.lblRequestId.Name = "lblRequestId";
+            this.lblRequestId.Visible = false;
+            this.lblRequestId.Size = new System.Drawing.Size(0, 16);
+            this.lblRequestId.TabIndex = 1;
+            // 
+            // txtDetailsRequestId
+            // 
+            this.txtDetailsRequestId.Location = new System.Drawing.Point(80, 57);
+            this.txtDetailsRequestId.Name = "txtDetailsRequestId";
+            this.txtDetailsRequestId.Visible = false;
+            this.txtDetailsRequestId.Size = new System.Drawing.Size(100, 22);
+            this.txtDetailsRequestId.TabIndex = 0;
+            // 
+            // grpStatusUpdate
+            // 
+            this.grpStatusUpdate.Controls.Add(this.btnUpdateStatus);
+            this.grpStatusUpdate.Controls.Add(this.cmbNewStatus);
+            this.grpStatusUpdate.Controls.Add(this.lblNewStatus);
+            this.grpStatusUpdate.Location = new System.Drawing.Point(520, 318);
+            this.grpStatusUpdate.Name = "grpStatusUpdate";
+            this.grpStatusUpdate.Size = new System.Drawing.Size(430, 60);
+            this.grpStatusUpdate.TabIndex = 3;
+            this.grpStatusUpdate.TabStop = false;
+            this.grpStatusUpdate.Text = "✏️ Update Status";
+            // 
+            // btnUpdateStatus
+            // 
+            this.btnUpdateStatus.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.btnUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateStatus.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateStatus.Location = new System.Drawing.Point(300, 22);
+            this.btnUpdateStatus.Name = "btnUpdateStatus";
+            this.btnUpdateStatus.Size = new System.Drawing.Size(120, 28);
+            this.btnUpdateStatus.TabIndex = 2;
+            this.btnUpdateStatus.Text = "Update";
+            this.btnUpdateStatus.UseVisualStyleBackColor = false;
+            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
+            // 
+            // cmbNewStatus
+            // 
+            this.cmbNewStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNewStatus.Items.AddRange(new object[] {
+            "Submitted",
+            "Assigned",
+            "In Progress",
+            "Resolved",
+            "Closed"});
+            this.cmbNewStatus.Location = new System.Drawing.Point(100, 22);
+            this.cmbNewStatus.Name = "cmbNewStatus";
+            this.cmbNewStatus.Size = new System.Drawing.Size(180, 24);
+            this.cmbNewStatus.TabIndex = 1;
+            // 
+            // lblNewStatus
+            // 
+            this.lblNewStatus.AutoSize = true;
+            this.lblNewStatus.Location = new System.Drawing.Point(10, 25);
+            this.lblNewStatus.Name = "lblNewStatus";
+            this.lblNewStatus.Size = new System.Drawing.Size(74, 16);
+            this.lblNewStatus.TabIndex = 0;
+            this.lblNewStatus.Text = "New Status:";
+            // 
+            // grpPriorityQueue
+            // 
+            this.grpPriorityQueue.Controls.Add(this.lstPriorityQueue);
+            this.grpPriorityQueue.Location = new System.Drawing.Point(12, 317);
+            this.grpPriorityQueue.Name = "grpPriorityQueue";
+            this.grpPriorityQueue.Size = new System.Drawing.Size(240, 150);
+            this.grpPriorityQueue.TabIndex = 4;
+            this.grpPriorityQueue.TabStop = false;
+            this.grpPriorityQueue.Text = "📋 Priority Queue (MinHeap)";
+            // 
+            // lstPriorityQueue
+            // 
+            this.lstPriorityQueue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstPriorityQueue.FormattingEnabled = true;
+            this.lstPriorityQueue.ItemHeight = 16;
+            this.lstPriorityQueue.Location = new System.Drawing.Point(3, 18);
+            this.lstPriorityQueue.Name = "lstPriorityQueue";
+            this.lstPriorityQueue.Size = new System.Drawing.Size(234, 129);
+            this.lstPriorityQueue.TabIndex = 0;
+            // 
+            // grpRelated
+            // 
+            this.grpRelated.Controls.Add(this.lstRelatedRequests);
+            this.grpRelated.Location = new System.Drawing.Point(258, 317);
+            this.grpRelated.Name = "grpRelated";
+            this.grpRelated.Size = new System.Drawing.Size(254, 150);
+            this.grpRelated.TabIndex = 5;
+            this.grpRelated.TabStop = false;
+            this.grpRelated.Text = "🔗 Related Requests (Graph BFS)";
+            // 
+            // lstRelatedRequests
+            // 
+            this.lstRelatedRequests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstRelatedRequests.FormattingEnabled = true;
+            this.lstRelatedRequests.ItemHeight = 16;
+            this.lstRelatedRequests.Location = new System.Drawing.Point(3, 18);
+            this.lstRelatedRequests.Name = "lstRelatedRequests";
+            this.lstRelatedRequests.Size = new System.Drawing.Size(248, 129);
+            this.lstRelatedRequests.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(40, 167, 69);
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(770, 460);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(90, 35);
+            this.btnRefresh.TabIndex = 6;
+            this.btnRefresh.Text = "🔄 Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(870, 460);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(90, 35);
+            this.btnBack.TabIndex = 7;
+            this.btnBack.Text = "🔙 Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+
+            // lblStats
+            // 
+            this.lblStats.AutoSize = true;
+            this.lblStats.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblStats.Location = new System.Drawing.Point(12, 475);
+            this.lblStats.Name = "lblStats";
+            this.lblStats.Size = new System.Drawing.Size(150, 20);
+            this.lblStats.TabIndex = 8;
+            this.lblStats.Text = "📊 Statistics loading...";
+            // 
+            // lblGraphStats
+            // 
+            this.lblGraphStats.AutoSize = true;
+            this.lblGraphStats.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblGraphStats.Location = new System.Drawing.Point(258, 475);
+            this.lblGraphStats.Name = "lblGraphStats";
+            this.lblGraphStats.Size = new System.Drawing.Size(100, 20);
+            this.lblGraphStats.TabIndex = 9;
+            this.lblGraphStats.Text = "Graph: 0 nodes";
+            // 
+            // ServiceStatusForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(970, 505);
+            this.Controls.Add(this.lblGraphStats);
+            this.Controls.Add(this.lblStats);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.grpRelated);
+            this.Controls.Add(this.grpPriorityQueue);
+            this.Controls.Add(this.grpStatusUpdate);
+            this.Controls.Add(this.grpDetails);
+            this.Controls.Add(this.grpSearch);
+            this.Controls.Add(this.dgvRequests);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "ServiceStatusForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "📊 Service Request Status";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequests)).EndInit();
+            this.grpSearch.ResumeLayout(false);
+            this.grpSearch.PerformLayout();
+            this.grpDetails.ResumeLayout(false);
+            this.grpDetails.PerformLayout();
+            this.grpStatusUpdate.ResumeLayout(false);
+            this.grpStatusUpdate.PerformLayout();
+            this.grpPriorityQueue.ResumeLayout(false);
+            this.grpRelated.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
+
+        private System.Windows.Forms.DataGridView dgvRequests;
+        private System.Windows.Forms.GroupBox grpSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearchId;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.GroupBox grpDetails;
+        private System.Windows.Forms.Label lblRequestId;
+        private System.Windows.Forms.TextBox txtDetailsRequestId;
+        private System.Windows.Forms.Label lblLocation;
+        private System.Windows.Forms.TextBox txtDetailsLocation;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.TextBox txtDetailsCategory;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.TextBox txtDetailsDescription;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.TextBox txtDetailsStatus;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.TextBox txtDetailsDate;
+        private System.Windows.Forms.Label lblPriority;
+        private System.Windows.Forms.TextBox txtDetailsPriority;
+        private System.Windows.Forms.Label lblAttachmentInfo;
+        private System.Windows.Forms.GroupBox grpStatusUpdate;
+        private System.Windows.Forms.Button btnUpdateStatus;
+        private System.Windows.Forms.ComboBox cmbNewStatus;
+        private System.Windows.Forms.Label lblNewStatus;
+        private System.Windows.Forms.GroupBox grpPriorityQueue;
+        private System.Windows.Forms.ListBox lstPriorityQueue;
+        private System.Windows.Forms.GroupBox grpRelated;
+        private System.Windows.Forms.ListBox lstRelatedRequests;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label lblStats;
+        private System.Windows.Forms.Label lblGraphStats;
+        #endregion
+    }
+}
